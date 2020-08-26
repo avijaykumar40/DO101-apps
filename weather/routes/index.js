@@ -6,6 +6,7 @@ const OWM_API_KEY = process.env.OWM_API_KEY || 'invalid_key';
 const UNITS = process.env.UNITS || 'metric';
 var PropertiesReader = require('properties-reader');
 
+
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { weather: null, err: null });
@@ -21,6 +22,7 @@ router.post('/get_weather', async function (req,res) {
     var properties = PropertiesReader('/data/weather.config');
     console.log(properties.get('LDAP_URL'));
     console.log(properties.get('LDAP_USERNAME'));
+   
     console.log(weather);
     if(weather.cod == '404' && weather.main == undefined) {
       res.render('index', {weather: null, error: 'Error: Unknown city'});
