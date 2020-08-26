@@ -19,7 +19,7 @@ router.post('/get_weather', async function (req,res) {
   try {
     let data = await fetch(url);
     let weather = await data.json();
-    var properties = PropertiesReader('/data/weather.config');
+    var properties = PropertiesReader('/data/weather/weather.config');
     console.log(properties.get('LDAP_URL'));
     console.log(properties.get('LDAP_USERNAME'));
    
